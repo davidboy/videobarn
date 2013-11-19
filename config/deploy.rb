@@ -1,11 +1,11 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
-server "123.123.123.123", :web, :app, :db, primary: true
+server "192.241.171.43", :web, :app, :db, primary: true
 
 set :application, "videobarn"
 set :user, "david"
-set :port, 22
+set :port, 7750
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
