@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: runs
+#
+#  id            :integer          not null, primary key
+#  show_id       :integer
+#  rider_id      :integer
+#  horse_id      :integer
+#  time          :decimal(, )
+#  placing       :integer
+#  penalty       :string(255)
+#  fav           :boolean
+#  notes         :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  show_class_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  show_id: 1
+  rider_id: 1
+  horse_id: 1
+  classification: MyString
+  category: MyString
+  time: 9.99
+  placing: 1
+  penalty: MyString
+  fav: false
+  notes: MyText
+
+two:
+  show_id: 1
+  rider_id: 1
+  horse_id: 1
+  classification: MyString
+  category: MyString
+  time: 9.99
+  placing: 1
+  penalty: MyString
+  fav: false
+  notes: MyText

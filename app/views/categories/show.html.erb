@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<%= render partial: 'layouts/video_listing', locals: {
+  headline: @category.name,
+  subtitle: ("at #{@arena} arena" if @arena),
+
+  runs: @runs,
+
+  refinements: @arenas,
+  refinement_name: 'Arena',
+  current_refinement: @arena,
+  refinement_link_generator: ->(arena) do
+    link_to arena, "#{category_path}/arenas/#{arena}/"
+  end
+} %>
+
+<!-- 33 chickens -->

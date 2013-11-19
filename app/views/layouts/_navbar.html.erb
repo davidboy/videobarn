@@ -1,0 +1,78 @@
+<% if signed_in? %>
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!--<a class="navbar-brand" href="#">Horse Videos</a>-->
+  </div>
+
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Shows <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% @nav_items[:shows].each do |show| %>
+            <li><%= link_to show.name, show %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Classes <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% @nav_items[:classes].each do |show_class| %>
+            <li><%= link_to show_class.name, show_class %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Riders <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% @nav_items[:riders].each do |rider| %>
+            <li><%= link_to rider.name, rider %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Administration <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Your Account', current_user %></li>
+          <li><%= link_to 'Sign Out', signout_path, method: 'delete' %></li>
+
+          <% if current_user.is_admin? %>
+            <li><%= link_to 'Manage Categories', categories_path   %></li>
+            <li><%= link_to 'Manage Classes',    show_classes_path %></li>
+          <% end %>
+
+          <% if current_user.is_mod? %>
+            <li><%= link_to 'Manage Shows',    shows_path   %></li>
+            <li><%= link_to 'Manage Riders',   riders_path  %></li>
+            <li><%= link_to 'Manage Horses',   horses_path  %></li>
+            <li><%= link_to 'Classify Videos', new_run_path %></li>
+          <% end %>
+
+        </ul>
+      </li>
+    </ul>
+
+    <form class="navbar-form navbar-right" role="search" action='/runs/search'>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="query">
+      </div>
+      <button type="submit" class="btn btn-default">Go</button>
+
+      <%= link_to 'Random Video', random_runs_path, class: 'btn btn-default' %>
+    </form>
+  </div>
+</div>
+<% end %>

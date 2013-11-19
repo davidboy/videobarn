@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= render @run %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-9">
+    <%= render @run.video %>
+  </div>
+
+  <div class="col-md-3">
+    <div class="btn-group" style="margin-bottom: 20px;">
+      <a href="<%=run_path @previous_video %>" class="btn btn-default">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Previous
+      </a>
+
+      <a href="<%= run_path @next_video %>" class="btn btn-primary">
+        Next Video
+        <span class="glyphicon glyphicon-arrow-right"></span>
+      </a>
+    </div>
+
+    <div class="well">
+      <table class="table table-condensed">
+        <tr>
+          <td>Rider</td>
+          <td><%= link_to @run.rider.name, @run.rider %></td>
+        </tr>
+        <tr>
+          <td>Show</td>
+          <td><%= link_to @run.show.name, @run.show %></td>
+        </tr>
+        <tr>
+          <td>Class</td>
+          <!-- FIXME: .... -->
+          <td><%= link_to @run.show_class.category.name, @run.show_class.category %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="well">
+      <table class="table table-condensed">
+        <tr>
+          <td>Length</td>
+          <td><%= @run.video.length %></td>
+        </tr>
+        <tr>
+          <td>Format</td>
+          <td><%= @run.video.format %></td>
+        </tr>
+        <tr>
+          <td>Audio format</td>
+          <td><%= @run.video.original_audio_format %></td>
+        </tr>
+        <tr>
+          <td>Video format</td>
+          <td><%= @run.video.original_video_format %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  mixpanel.people.increment("videos played");
+  mixpanel.track("Played video", {
+    "rider": "<%= @run.rider.name %>",
+    "show": "<%= @run.show.name %>",
+    "class": "<%= @run.show_class.name %>",
+    "category": "<%= @run.show_class.category.name %>",
+    "run_id": "<%= @run.id %>",
+    "viewer": "<%= current_user.name %>"
+  });
+</script>
+

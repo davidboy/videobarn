@@ -1,0 +1,64 @@
+<%= render @run.video %>
+<style type="text/css">
+  div.flowplayer {
+    width: 50%;
+  }
+</style>
+
+
+<%= form_for(@run) do |f| %>
+  <% if @run.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@run.errors.count, "error") %> prohibited this run from being saved:</h2>
+
+      <ul>
+      <% @run.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :show_id %><br>
+    <%= f.collection_select(:show_id, Show.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :rider_id %><br>
+    <%= f.collection_select(:rider_id, Rider.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :horse_id %><br>
+    <%= f.collection_select(:horse_id, Horse.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :show_class_id %><br>
+    <%= f.collection_select(:show_class_id, ShowClass.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :placing %><br>
+    <%= f.number_field :placing %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty %><br>
+    <%= f.text_field :penalty %>
+  </div>
+  <div class="field">
+    <%= f.label :fav %><br>
+    <%= f.check_box :fav %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+
+  <input type="hidden" name="video_id" value="<%= @run.video.id %>" />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

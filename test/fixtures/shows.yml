@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: shows
+#
+#  id            :integer          not null, primary key
+#  date          :date
+#  double_judged :boolean
+#  notes         :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  location      :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  date: 2013-08-22
+  double_judged: false
+  notes: MyText
+
+two:
+  name: MyString
+  date: 2013-08-22
+  double_judged: false
+  notes: MyText

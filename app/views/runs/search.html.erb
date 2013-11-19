@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>Search results for "<%= params[:query] %>"</h1>
+</div>
+
+<% @runs.each do |run| %>
+  <h3><a href="<%= run_path(run) %>"><%= render(run) %></h3>
+<% end %>

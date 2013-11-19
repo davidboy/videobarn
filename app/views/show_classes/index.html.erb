@@ -1,0 +1,29 @@
+<h1>Listing show_classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @show_classes.each do |show_class| %>
+      <tr>
+        <td><%= show_class.name %></td>
+        <td><%= show_class.category.name %></td>
+        <td><%= link_to 'Show', show_class %></td>
+        <td><%= link_to 'Edit', edit_show_class_path(show_class) %></td>
+        <td><%= link_to 'Destroy', show_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Show class', new_show_class_path %>

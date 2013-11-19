@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<%= render partial: 'layouts/video_listing', locals: {
+  headline: @rider.name,
+  subtitle: ("at the #{@show.name} show" if @show),
+
+  runs: @runs,
+
+  refinements: @shows,
+  refinement_name: 'Show',
+  current_refinement: @show,
+  refinement_link_generator: ->(show) do
+    link_to show.name, "#{rider_path}/shows/#{show.id}"
+  end
+} %>

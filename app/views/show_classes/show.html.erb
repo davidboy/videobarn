@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @show_class.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @show_class.category.name %>
+</p>
+
+<%= link_to 'Edit', edit_show_class_path(@show_class) %> |
+<%= link_to 'Back', show_classes_path %>

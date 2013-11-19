@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<%= render partial: 'layouts/video_listing', locals: {
+  headline: "#{@show.name} Show",
+  subtitle: ('(Double Judged)' if @show.double_judged?),
+
+  runs: @runs,
+
+  refinements: @categories,
+  refinement_name: 'Class',
+  current_refinement: @current_category,
+  refinement_link_generator: ->(category) do
+    link_to category.name, "#{show_path}/classes/#{category.id}/"
+  end
+} %>

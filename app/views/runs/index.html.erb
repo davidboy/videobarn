@@ -1,0 +1,43 @@
+<h1>Listing runs</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Show</th>
+      <th>Rider</th>
+      <th>Horse</th>
+      <th>Class</th>
+      <th>Time</th>
+      <th>Placing</th>
+      <th>Penalty</th>
+      <th>Fav</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @runs.each do |run| %>
+      <tr>
+        <td><%= run.show.name %></td>
+        <td><%= run.rider.name %></td>
+        <td><%= run.horse.name %></td>
+        <td><%= run.show_class.name %></td>
+        <td><%= run.time %></td>
+        <td><%= run.placing %></td>
+        <td><%= run.penalty %></td>
+        <td><%= run.fav %></td>
+        <td><%= run.notes %></td>
+        <td><%= link_to 'Show', run %></td>
+        <td><%= link_to 'Edit', edit_run_path(run) %></td>
+        <td><%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Run', new_run_path %>

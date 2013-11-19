@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: videos
+#
+#  id            :integer          not null, primary key
+#  run_id        :integer
+#  uuid          :string(255)
+#  notes         :text
+#  created_at    :datetime
+#  updated_at    :datetime
+#  has_mp4       :boolean
+#  has_webm      :boolean
+#  original_name :string(255)
+#  source        :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  run_id: 1
+  filename: MyString
+  notes: MyText
+
+two:
+  run_id: 1
+  filename: MyString
+  notes: MyText

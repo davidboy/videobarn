@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    <%= headline %>
+    <% if subtitle %>
+      <small><%= subtitle %></small>
+    <% end %>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li <% unless current_refinement %> class="active" <% end %>>
+        <%= link_to "All #{refinement_name.pluralize}", show_path %>
+      </li>
+      <% refinements.each do |refinements| %>
+        <li <% if !current_refinement.nil? and current_refinement == refinements %> class="active"<% end %>>
+          <%= refinement_link_generator.call(refinements) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <% @runs.each do |run| %>
+      <h3><a href="<%= run_path(run) %>"><%= render(run) %></h3>
+    <% end %>
+  </div>
+</div>

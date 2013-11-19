@@ -1,0 +1,14 @@
+<%= run.rider.name %> on <%= run.horse.name %><br />
+
+<small>
+  <% if run.penalty? %>
+    <% if run.penalty == 'notime' %>
+      <span class="label label-danger">No Time</span>
+    <% else %>
+      <span class="label label-warning"><%= run.time %> <%= run.penalty %></span>
+    <% end %>
+  <% else %>
+    <span class="label label-success"><%= number_with_precision(run.time, precision: 2) %></span>
+  <% end %>
+   <%= run.show_class.name %> at the <%= run.show.name %> show
+</small>

@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: show_classes
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  category_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  category_id: 
+
+two:
+  name: MyString
+  category_id: 
