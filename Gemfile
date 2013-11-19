@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#gem 'pg', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,6 +44,8 @@ gem 'thin'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
+gem 'capistrano', group: :development
+gem 'rvm-capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -51,5 +54,4 @@ gem "jquery-fileupload-rails"
 
 gem 'acts-as-taggable-on'
 
-gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'unicorn', group: :production
