@@ -16,6 +16,7 @@ class Rider < ActiveRecord::Base
 
   has_many :horses, :through => :runs
   has_many :shows,  :through => :runs
+  has_many :videos, :through => :runs
 
   default_scope { order('fav DESC, name ASC') }
 end
