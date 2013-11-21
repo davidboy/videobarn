@@ -34,6 +34,10 @@ class Run < ActiveRecord::Base
     self.includes('show').where(shows: {location: arena})
   end
 
+  def times_viewed
+    self.video.times_viewed
+  end
+
   private
     def update_tags
       tags = [self.rider.name, self.horse.name, self.show_class.name, self.category.name,

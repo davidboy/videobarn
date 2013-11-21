@@ -33,6 +33,10 @@ class Video < ActiveRecord::Base
     update(has_webm: false, has_mp4: false)
   end
 
+  def times_viewed
+    self.video_views.count
+  end
+
   def length
     ffmpeg_info['format']['duration'].to_f
   end
