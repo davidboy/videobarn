@@ -37,6 +37,10 @@
           <!-- FIXME: .... -->
           <td><%= link_to @run.show_class.category.name, @run.show_class.category %></td>
         </tr>
+        <tr>
+          <td>Placing</td>
+          <td><%= if @run.placing.nil? then 'No placing' else @run.placing.ordinalize end %></td>
+        </tr>
       </table>
     </div>
 
@@ -45,6 +49,10 @@
         <tr>
           <td>Views</td>
           <td><%= @run.video.times_viewed %></td>
+        </tr>
+        <tr>
+          <td>Notes</td>
+          <td><%= @run.notes %></td>
         </tr>
       </table>
     </div>
