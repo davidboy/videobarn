@@ -14,6 +14,7 @@ class RunsController < ApplicationController
     tags = params[:query].split(' ')
     @runs = Run.tagged_with(tags)
     session[:playlist] = @runs.pluck(:id)
+    session[:playlist_name] = "Search results for #{params[:query]}"
   end
 
   # GET /runs/1
@@ -33,11 +34,13 @@ class RunsController < ApplicationController
     else
       @next_video = 'random'
       @previous_video = 'random'
+      session[:playlist_name] = 'None (using random videos)'
     end
   end
 
   def random
     session[:playlist] = 'random'
+    session[:playlist_name] = 'Random videos'
     redirect_to Run.first(offset: rand(Run.count))
   end
 

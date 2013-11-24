@@ -5,8 +5,16 @@
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      Current playlist: <%= session[:playlist_name] %>
+    <div>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-9">
-    <%= render @run.video %>
+    <p><%= render @run.video %></p>
   </div>
 
   <div class="col-md-3">
