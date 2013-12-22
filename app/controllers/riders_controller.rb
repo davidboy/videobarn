@@ -16,7 +16,7 @@ class RidersController < ApplicationController
     if params[:show_id]
       @show = Show.find(params[:show_id])
       @runs = @rider.runs.where show: @show
-      session[:playlist_name] = "#{@rider.name} at #{show.name}"
+      session[:playlist_name] = "#{@rider.name} at #{@show.name}"
     else
       @runs = @rider.runs
       session[:playlist_name] = @rider.name

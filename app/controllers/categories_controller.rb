@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     if params[:arena]
       @runs = @category.runs.at(params[:arena])
       @arena = params[:arena]
-      session[:playlist_name] = "#{@category.name} at #{@arena.name}"
+      session[:playlist_name] = "#{@category.name} at #{@arena}"
     else
       @runs = @category.runs
       session[:playlist_name] = @category.name
