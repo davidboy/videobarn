@@ -1,14 +1,33 @@
-<%= run.rider.name %> on <%= run.horse.name %><br />
-
-<small>
-  <% if run.penalty? %>
-    <% if run.penalty == 'notime' %>
-      <span class="label label-danger">No Time</span>
+<div class="thumbnail">
+  <img src="http://149733f5c45cf2e0c643-02593f8167b03fe1fa82e799dcd81473.r95.cf5.rackcdn.com//<%= run.video.uuid %>.png">
+  <div style="positon: absolute; width: 0; height: 0;">
+    <% if run.penalty? %>
+      <% if run.penalty == 'notime' %>
+        <div class="label label-danger"><span class="glyphicon glyphicon-time"></span> No Time</div>
+      <% else %>
+        <div class="label label-warning"><span class="glyphicon glyphicon-time"></span> <%= number_with_precision(run.time, precision: 3) %> <%= run.penalty %></div>
+      <% end %>
     <% else %>
-      <span class="label label-warning"><%= number_with_precision(run.time, precision: 3) %> <%= run.penalty %></span>
+      <% if run.time.to_i == 0 %>
+        <div class="label label-warning"><span class="glyphicon glyphicon-time"> </span>Unknown</div>
+      <% else %>
+        <div class="label label-success"><span class="glyphicon glyphicon-time"></span> <%= number_with_precision(run.time, precision: 3) %></div>
+      <% end %>
     <% end %>
-  <% else %>
-    <span class="label label-success"><%= number_with_precision(run.time, precision: 3) %></span>
-  <% end %>
-   <%= run.show_class.name %> at the <%= run.show.name %> show
-</small>
+  </div>
+  <style type="text/css">
+    .thumbnail .label {
+      position: relative;
+      top: -25px;
+      margin-left: 5px;
+      left: 0;
+    }
+  </style>
+  <div class="caption">
+    <p><%= run.rider.name %> on <%= run.horse.name %></p>
+    <p><small>
+      <span class="glyphicon glyphicon-list-alt"></span> <%= run.show_class.name %><br />
+      <span class="glyphicon glyphicon-home"></span> <%= run.show.name %> show<br />
+    </small></p>
+  </div>
+</div>

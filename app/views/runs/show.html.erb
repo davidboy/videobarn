@@ -1,7 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-  <h1><%= render @run %></h1>
+  <h1>
+    <%= @run.rider.name %> on <%= @run.horse.name %><br />
+
+    <small>
+      <% if @run.penalty? %>
+        <% if @run.penalty == 'notime' %>
+          <span class="label label-danger">No Time</span>
+        <% else %>
+          <span class="label label-warning"><%= number_with_precision(@run.time, precision: 3) %> <%= @run.penalty %></span>
+        <% end %>
+      <% else %>
+        <span class="label label-success"><%= number_with_precision(@run.time, precision: 3) %></span>
+      <% end %>
+       <%= @run.show_class.name %> at the <%= @run.show.name %> show
+    </small>
+  </h1>
 </div>
 
 <div class="row">

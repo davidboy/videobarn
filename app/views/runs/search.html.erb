@@ -4,6 +4,12 @@
   <h1>Search results for "<%= params[:query] %>"</h1>
 </div>
 
-<% @runs.each do |run| %>
-  <h3><a href="<%= run_path(run) %>"><%= render(run) %></h3>
+<% @runs.each_slice(4) do |slice| %>
+  <div class="row">
+    <% slice.each do |run| %>
+      <div class="col-xs-6 col-sm-3 col-xl-6" style="padding-bottom: 15px;">
+        <a href="<%= run_path(run) %>"><%= render(run) %></a>
+      </div>
+    <% end %>
+  </div>
 <% end %>
