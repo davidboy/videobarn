@@ -1,5 +1,14 @@
 <h1>New video</h1>
 
-<%= render 'form' %>
+<%= form_tag '/videos' do %>
+  <div class="field">
+    <%= label_tag 'Transcode log' %><br>
+    <%= text_area_tag 'log' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Upload' %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', videos_path %>

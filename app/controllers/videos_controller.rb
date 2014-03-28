@@ -1,3 +1,6 @@
+require 'pathname'
+require 'json'
+
 class VideosController < ApplicationController
   before_action :require_admin, except: :bad
   before_action :require_mod, only: :bad
@@ -18,7 +21,6 @@ class VideosController < ApplicationController
 
   # GET /videos/new
   def new
-    @video = Video.new
   end
 
   # GET /videos/1/edit
@@ -33,17 +35,16 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(video_params)
+    new_videos = JSON.parse(params[:log])
+    for vid in new_videos
+      path, uuid = *vid
+      source, original_name = *Pathname.new(path).each_filename.to_a
 
-    respond_to do |format|
-      if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @video }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @video.errors, status: :unprocessable_entity }
-      end
+      puts "#{uuid}: '#{original_name}' from '#{source}'"
+      Video.create(uuid: uuid, original_name: original_name, source: source, has_webm: true, has_mp4: true)
     end
+
+    render text: 'Done'
   end
 
   # PATCH/PUT /videos/1
