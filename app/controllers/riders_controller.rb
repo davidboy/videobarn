@@ -15,10 +15,10 @@ class RidersController < ApplicationController
 
     if params[:show_id]
       @show = Show.find(params[:show_id])
-      @runs = @rider.runs.where show: @show
+      @runs = @rider.runs.where(show: @show).paginate(page: params[:page])
       session[:playlist_name] = "#{@rider.name} at #{@show.name}"
     else
-      @runs = @rider.runs
+      @runs = @rider.runs.paginate(page: params[:page])
       session[:playlist_name] = @rider.name
     end
 

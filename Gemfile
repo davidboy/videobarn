@@ -55,3 +55,6 @@ gem "jquery-fileupload-rails"
 gem 'acts-as-taggable-on'
 
 gem 'unicorn', group: :production
+
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'

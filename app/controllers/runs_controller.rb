@@ -12,7 +12,7 @@ class RunsController < ApplicationController
     Search.create(user: current_user, query: params[:query], searched_on: Time.now)
 
     tags = params[:query].split(' ')
-    @runs = Run.tagged_with(tags)
+    @runs = Run.tagged_with(tags).paginate(page: params[:page])
     session[:playlist] = @runs.pluck(:id)
     session[:playlist_name] = "Search results for #{params[:query]}"
   end
