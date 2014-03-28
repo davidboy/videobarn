@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :authorize, only: [:new, :create]
 
   def new
+    redirect_to Show.first if signed_in?
   end
 
   def create
