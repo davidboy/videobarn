@@ -1,6 +1,6 @@
 <%= cache(run) do %>
   <div class="thumbnail">
-    <img src="http://149733f5c45cf2e0c643-02593f8167b03fe1fa82e799dcd81473.r95.cf5.rackcdn.com//<%= run.video.uuid %>.png" onerror="this.src='/not_found.gif">
+    <img src="http://149733f5c45cf2e0c643-02593f8167b03fe1fa82e799dcd81473.r95.cf5.rackcdn.com//<%= run.video.uuid %>.png" onerror="this.src='/not_found.gif';">
     <div style="positon: absolute; width: 0; height: 0;">
       <% if run.penalty? %>
         <% if run.penalty == 'notime' %>
