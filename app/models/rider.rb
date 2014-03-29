@@ -18,5 +18,9 @@ class Rider < ActiveRecord::Base
   has_many :shows,  :through => :runs
   has_many :videos, :through => :runs
 
-  default_scope { order('fav DESC, name ASC') }
+  default_scope { order('sortable_name ASC') }
+
+  before_save do
+    self.sortable_name = self.name.split.last
+  end
 end

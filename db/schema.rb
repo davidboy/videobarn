@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115202046) do
+ActiveRecord::Schema.define(version: 20140329200904) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20131115202046) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sortable_name"
   end
 
   create_table "runs", force: true do |t|
