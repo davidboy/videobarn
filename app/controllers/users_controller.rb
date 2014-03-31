@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless @user == current_user
+      raise ActionController::RoutingError.new('Not Found')
+    end
+
+    @recent_videos = @user.video_views.paginate(page: params[:page])
   end
 
   def new

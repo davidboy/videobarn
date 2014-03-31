@@ -1,1 +1,31 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="page-header">
+  <h1>
+    Recently Watched Videos
+    <small>
+      (<%= @user.name %>)
+    </small>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#">Something</a></li>
+    </ul>
+  </div>
+
+  <div class="col-md-9">
+    <% @recent_videos.each_slice(4) do |slice| %>
+      <div class="row">
+        <% slice.each do |video_view| %>
+          <div class="col-xs-6 col-sm-3 col-xl-6" style="padding-bottom: 15px;">
+            <% if video_view.video.run.nil? then p video_view.video end %>
+            <a href="<%= run_path(video_view.video.run) %>"><%= render(video_view.video.run) %></a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= will_paginate @recent_videos, renderer: BootstrapPagination::Rails %>  
+  </div>
+</div>
