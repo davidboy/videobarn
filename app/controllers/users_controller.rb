@@ -25,9 +25,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = current_user
+
+    unless current_user?(current_user.authenticate(params[:old_password]))
+      current_user.errors.add(:old_password, 'was incorrect.  Please try again.')
+      render action: 'edit'
+      return
+    end
+
+    if current_user.update(user_params)
+      redirect_to root_path, notice: 'Your password was successfully changed.'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
+
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :old_password, :password, :password_confirmation)
     end
 end

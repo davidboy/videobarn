@@ -46,8 +46,10 @@
           Your Account <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li><%= link_to 'History', current_user %></li>
-          <li><%= link_to 'Sign Out', signout_path, method: 'delete' %></li>
+          <li><%= link_to icon_and_string('book', 'History'), current_user %></li>
+          <li class="divider"></li>
+          <li><%= link_to icon_and_string('pencil', 'Edit Details'), edit_user_path(current_user) %></li>
+          <li><%= link_to icon_and_string('log-out', 'Sign Out'), signout_path, method: 'delete' %></li>
 
           <% if current_user.is_admin? %>
             <li class="divider"></li>

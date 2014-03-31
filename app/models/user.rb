@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 50 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :password, confirmation: true
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token

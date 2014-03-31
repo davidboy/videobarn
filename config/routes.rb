@@ -24,7 +24,7 @@ VideoBarn::Application.routes.draw do
     get 'classes/:class_id', :on => :member, :action => :show
   end
 
-  resources :users,    only: [:new, :create, :show]
+  resources :users,    only: [:new, :create, :show, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup',  to: 'users#new',        via: 'get'
@@ -89,7 +89,7 @@ VideoBarn::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 30 Mar 2014 18:49
+# Generated on 31 Mar 2014 15:41
 #
 #                 GET    /categories/:id/arenas/:arena(.:format) categories#show
 #      categories GET    /categories(.:format)                   categories#index
@@ -155,6 +155,7 @@ end
 #                 DELETE /shows/:id(.:format)                    shows#destroy
 #           users POST   /users(.:format)                        users#create
 #        new_user GET    /users/new(.:format)                    users#new
+#       edit_user GET    /users/:id/edit(.:format)               users#edit
 #            user GET    /users/:id(.:format)                    users#show
 #        sessions POST   /sessions(.:format)                     sessions#create
 #     new_session GET    /sessions/new(.:format)                 sessions#new
