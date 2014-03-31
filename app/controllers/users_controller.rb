@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
 
-    @recent_videos = @user.video_views.paginate(page: params[:page])
+    @recent_videos = @user.video_views.order('id DESC').paginate(page: params[:page])
   end
 
   def new
