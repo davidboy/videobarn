@@ -89,7 +89,7 @@ VideoBarn::Application.routes.draw do
   #   end
 end
 #== Route Map
-# Generated on 09 Oct 2013 16:40
+# Generated on 30 Mar 2014 18:49
 #
 #                 GET    /categories/:id/arenas/:arena(.:format) categories#show
 #      categories GET    /categories(.:format)                   categories#index
@@ -109,6 +109,7 @@ end
 #                 PUT    /show_classes/:id(.:format)             show_classes#update
 #                 DELETE /show_classes/:id(.:format)             show_classes#destroy
 #     random_runs GET    /runs/random(.:format)                  runs#random
+#     search_runs GET    /runs/search(.:format)                  runs#search
 #            runs GET    /runs(.:format)                         runs#index
 #                 POST   /runs(.:format)                         runs#create
 #         new_run GET    /runs/new(.:format)                     runs#new
@@ -152,3 +153,13 @@ end
 #                 PATCH  /shows/:id(.:format)                    shows#update
 #                 PUT    /shows/:id(.:format)                    shows#update
 #                 DELETE /shows/:id(.:format)                    shows#destroy
+#           users POST   /users(.:format)                        users#create
+#        new_user GET    /users/new(.:format)                    users#new
+#            user GET    /users/:id(.:format)                    users#show
+#        sessions POST   /sessions(.:format)                     sessions#create
+#     new_session GET    /sessions/new(.:format)                 sessions#new
+#         session DELETE /sessions/:id(.:format)                 sessions#destroy
+#          signup GET    /signup(.:format)                       users#new
+#          signin GET    /signin(.:format)                       sessions#new
+#         signout DELETE /signout(.:format)                      sessions#destroy
+#            root GET    /                                       sessions#new

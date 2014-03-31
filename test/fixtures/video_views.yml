@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  video_id   :integer
 #  user_id    :integer
+#  viewed_on  :datetime
 #  created_at :datetime
 #  updated_at :datetime
 #
