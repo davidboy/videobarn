@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = 'Welcome!'
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to Show.first
     else
       render 'new'
     end
