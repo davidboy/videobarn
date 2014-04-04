@@ -16,6 +16,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    unless params[:signup_token] == ENV['VIDEOBARN_SIGNUP_TOKEN']
+      @user.errors.add(:signup_key_phrase, 'was incorrect.  Please try again.')
+      render action: 'new'
+      return
+    end
+    
     if @user.save
       sign_in @user
       flash[:success] = 'Welcome!'
