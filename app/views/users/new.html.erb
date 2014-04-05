@@ -21,27 +21,31 @@
 
     <%= form_for(@user, class: 'form', html: { autocomplete: 'off' }) do |f| %>
       <div class="form-group">
-        <%= f.label :name, 'Who are you?' %>
-        <%= f.text_field :name, class: 'form-control', placeholder: 'Black Bart' %>
+        <%= f.label :name, 'What is your name?' %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Jane Doe' %>
       </div>
 
       <div class="form-group">
         <%= f.label :email, 'Your email address?' %>
-        <%= f.text_field :email, class: 'form-control', placeholder: 'blackbart@gmail.com' %>
+        <%= f.text_field :email, class: 'form-control', placeholder: 'janedoe@gmail.com' %>
       </div>
 
+      <hr />
+
       <div class="form-group">
-        <%= label_tag :signup_token, 'Enter the Super Secret Signup Key Phrase™' %>
+        <%= label_tag :signup_token, 'Enter the Super Secret Signup Key™:' %>
         <%= text_field_tag :signup_token, nil, class: 'form-control', placeholder: '(no comment)' %>
       </div>
 
+      <hr />
+
       <div class="form-group">
-        <%= f.label :password, 'Choose a password' %>
+        <%= f.label :password, 'Create your password:' %>
         <%= f.password_field :password, class: 'form-control', placeholder: 'ihatepasswords' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation, 'Type it again' %>
+        <%= f.label :password_confirmation, 'Type your password again:' %>
         <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'ihatepasswords' %>
       </div>
 
