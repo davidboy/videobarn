@@ -58,3 +58,7 @@ gem 'unicorn', group: :production
 
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+
+group :production do
+  gem 'pg'
+end
