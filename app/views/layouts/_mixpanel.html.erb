@@ -3,11 +3,13 @@ typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("0a22d0fc1954be8445572d12304ad15b");
 
+<% if signed_in? %>
 mixpanel.identify("<%= current_user.id %>");
 mixpanel.people.set({
   "$name": "<%= current_user.name %>",
   "$email": "<%= current_user.email %>",
   "$created": "<%= current_user.created_at %>"
 });
+<% end %>
 
 </script><!-- end Mixpanel -->
