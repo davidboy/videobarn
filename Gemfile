@@ -62,3 +62,5 @@ gem 'will_paginate-bootstrap'
 group :production do
   gem 'pg'
 end
+
+gem 'honeybadger'

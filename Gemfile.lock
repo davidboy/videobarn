@@ -50,6 +50,8 @@ GEM
     execjs (2.0.0)
     highline (1.6.20)
     hike (1.2.3)
+    honeybadger (1.11.2)
+      json
     i18n (0.6.5)
     jbuilder (1.5.0)
       activesupport (>= 3.0.0)
@@ -148,6 +150,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   capistrano
   coffee-rails (~> 4.0.0)
+  honeybadger
   jbuilder (~> 1.2)
   jquery-fileupload-rails
   jquery-rails
