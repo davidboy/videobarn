@@ -20,3 +20,9 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  mixpanel.track("Visited signin page", {
+    "ip_address": "<%= request.remote_ip %>"
+  });
+</script>
