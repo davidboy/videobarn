@@ -64,3 +64,4 @@ group :production do
 end
 
 gem 'honeybadger'
+gem 'capybara'
