@@ -11,10 +11,11 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  category_id: 
+spike_youth:
+  name: Spike Weaving - 12 and under
 
-two:
-  name: MyString
-  category_id: 
+spike_open:
+  name: Spike Weaving - Open
+
+floating_open:
+  name: Floating Race - Open

@@ -15,10 +15,30 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  email: MyString
+david:
+  name: David Reed
+  email: notreallymyemail@charter.net
+  password_digest: <%= BCrypt::Password.create('12345') %>
+  is_admin: false
+  is_mod: false
 
-two:
-  name: MyString
-  email: MyString
+admin:
+  name: An admin
+  email: admin@admin.com
+  password_digest: <%= BCrypt::Password.create('admin') %>
+  is_admin: true
+  is_mod: false
+
+mod:
+  name: A moderator
+  email: mod@mod.com
+  password_digest: <%= BCrypt::Password.create('mod') %>
+  is_admin: false
+  is_mod: true
+
+black_bart:
+  name: Black Bart
+  email: bbart@gmail.com
+  password_digest: <%= BCrypt::Password.create('ihatepasswords') %>
+  is_admin: false
+  is_mod: false

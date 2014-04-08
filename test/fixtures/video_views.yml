@@ -12,10 +12,4 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  video_id: 1
-  user_id: 1
-
-two:
-  video_id: 1
-  user_id: 1
+# TODO

@@ -13,14 +13,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  date: 2013-08-22
+ardmore_show:
+  date: 2014-04-05
+  location: Ardmore
   double_judged: false
-  notes: MyText
 
-two:
-  name: MyString
-  date: 2013-08-22
+darrington_show:
+  date: 2014-04-12
+  location: Darrington
   double_judged: false
-  notes: MyText

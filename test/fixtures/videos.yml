@@ -16,12 +16,10 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  run_id: 1
-  filename: MyString
-  notes: MyText
-
-two:
-  run_id: 1
-  filename: MyString
-  notes: MyText
+a_video:
+  run: a_run
+  uuid: 30aeddc0-bf42-11e3-b1b6-0800200c9a66
+  has_mp4: true
+  has_webm: true
+  original_name: a_video.AVI
+  source: the_folder_this_came_from

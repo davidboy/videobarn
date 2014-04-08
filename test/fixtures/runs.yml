@@ -18,26 +18,11 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  show_id: 1
-  rider_id: 1
-  horse_id: 1
-  classification: MyString
-  category: MyString
-  time: 9.99
-  placing: 1
-  penalty: MyString
+a_run:
+  show: ardmore_show
+  rider: bonnie
+  horse: sodium_hydroxide
+  time: 10.923
+  placing: 3
   fav: false
-  notes: MyText
-
-two:
-  show_id: 1
-  rider_id: 1
-  horse_id: 1
-  classification: MyString
-  category: MyString
-  time: 9.99
-  placing: 1
-  penalty: MyString
-  fav: false
-  notes: MyText
+  show_class: spike_open

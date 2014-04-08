@@ -13,12 +13,10 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  fav: false
-  notes: MyText
+bonnie:
+  name: Bonnie Henderson
+  notes: A good rider.
 
-two:
-  name: MyString
-  fav: false
-  notes: MyText
+faye:
+  name: Faye Allan
+  notes: A bad rider.

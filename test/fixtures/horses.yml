@@ -11,10 +11,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  notes: MyText
+hpcc:
+  name: Honey Puff Cream Cloud
 
-two:
-  name: MyString
-  notes: MyText
+sodium_hydroxide:
+  name: Sodium Hydroxide
