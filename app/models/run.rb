@@ -25,7 +25,7 @@ class Run < ActiveRecord::Base
 
   has_one :video
 
-  default_scope order('time ASC')
+  default_scope { order('time ASC') }
 
   acts_as_taggable
   before_save :update_tags
