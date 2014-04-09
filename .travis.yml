@@ -2,3 +2,10 @@ language: ruby
 rvm:
   - 2.0.0
   - 2.1.0
+env:
+  - VIDEOBARN_SIGNUP_TOKEN="letmesignupplz" VIDEOBARN_SECRET_TOKEN="60ed4add5c73ac6c4d372c696b1c27977fc44535e0afd87e09ceb000dfb2819b251f746a403be2d8a5bc15904858ad7cabe7eacf9c0ff9a47b4084280d1eca36"
+before_script:
+  - "cp ./config/travis.database.yml ./config/database.yml"
+script:
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
