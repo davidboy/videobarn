@@ -9,6 +9,7 @@
   refinements: @categories,
   refinement_name: 'Class',
   current_refinement: @current_category,
+  no_refinements_url: @show,
   refinement_link_generator: ->(category) do
     link_to category.name, "#{show_path}/classes/#{category.id}/"
   end

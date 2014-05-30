@@ -9,6 +9,7 @@
   refinements: @shows,
   refinement_name: 'Show',
   current_refinement: @show,
+  no_refinements_url: @rider,
   refinement_link_generator: ->(show) do
     link_to show.name, "#{rider_path}/shows/#{show.id}"
   end
