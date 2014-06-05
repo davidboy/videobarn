@@ -41,7 +41,7 @@ class Run < ActiveRecord::Base
   def display_placing
     if placing.nil?
       'No placing'
-    elsif placing == 99
+    elsif placing == 999
       'Unknown'
     else 
       placing.ordinalize
