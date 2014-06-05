@@ -38,6 +38,16 @@ class Run < ActiveRecord::Base
     self.video.times_viewed
   end
 
+  def display_placing
+    if placing.nil?
+      'No placing'
+    elsif placing == 99
+      'Unknown'
+    else 
+      placing.ordinalize
+    end
+  end
+
   private
     def update_tags
       tags = [self.rider.name, self.horse.name, self.show_class.name, self.category.name,

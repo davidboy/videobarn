@@ -62,7 +62,7 @@
         </tr>
         <tr>
           <td>Placing</td>
-          <td><%= if @run.placing.nil? then 'No placing' else @run.placing.ordinalize end %></td>
+          <td><%= @run.display_placing %></td>
         </tr>
       </table>
     </div>
