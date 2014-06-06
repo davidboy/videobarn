@@ -28,9 +28,8 @@ class RidersController < ApplicationController
       session[:playlist_name] += " on #{@horse.name}"
     end
 
-    @runs = @runs.paginate(page: params[:page])
-
     session[:playlist] = @runs.pluck(:id)
+    @runs = @runs.paginate(page: params[:page])
   end
 
   # GET /riders/new

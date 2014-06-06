@@ -14,14 +14,15 @@ class ShowsController < ApplicationController
     @categories = Category.all
     if params[:class_id]
       @current_category = Category.find params[:class_id]
-      @runs = @current_category.runs.where(show: @show).paginate(page: params[:page])
+      @runs = @current_category.runs.where(show: @show)
       session[:playlist_name] = "#{@current_category.name} at #{@show.name}"
     else
-      @runs = Run.where(show: @show).paginate(page: params[:page])
+      @runs = Run.where(show: @show)
       session[:playlist_name] = @show.name
     end
 
     session[:playlist] = @runs.pluck(:id)
+    @runs = @runs.paginate(page: params[:page])
   end
 
   # GET /shows/new

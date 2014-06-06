@@ -14,15 +14,16 @@ class CategoriesController < ApplicationController
     @arenas = Show.locations
 
     if params[:arena]
-      @runs = @category.runs.at(params[:arena]).paginate(page: params[:page])
+      @runs = @category.runs.at(params[:arena])
       @arena = params[:arena]
       session[:playlist_name] = "#{@category.name} at #{@arena}"
     else
-      @runs = @category.runs.paginate(page: params[:page])
+      @runs = @category.runs
       session[:playlist_name] = @category.name
     end
 
     session[:playlist] = @runs.pluck(:id)
+    @runs = @runs.paginate(page: params[:page])
   end
 
   # GET /categories/new
