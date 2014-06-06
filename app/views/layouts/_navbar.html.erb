@@ -53,12 +53,14 @@
 
           <% if current_user.is_admin? %>
             <li class="divider"></li>
+            <li class="dropdown-header">Administration</li>
             <li><%= link_to 'Manage Categories', categories_path   %></li>
             <li><%= link_to 'Manage Classes',    show_classes_path %></li>
           <% end %>
 
           <% if current_user.is_mod? %>
             <li class="divider"></li>
+            <li class="dropdown-header">Moderation</li>
             <li><%= link_to 'Manage Shows',    shows_path   %></li>
             <li><%= link_to 'Manage Riders',   riders_path  %></li>
             <li><%= link_to 'Manage Horses',   horses_path  %></li>
