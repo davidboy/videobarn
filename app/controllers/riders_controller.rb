@@ -15,12 +15,20 @@ class RidersController < ApplicationController
 
     if params[:show_id]
       @show = Show.find(params[:show_id])
-      @runs = @rider.runs.where(show: @show).paginate(page: params[:page])
+      @runs = @rider.runs.where(show: @show)
       session[:playlist_name] = "#{@rider.name} at #{@show.name}"
     else
-      @runs = @rider.runs.paginate(page: params[:page])
+      @runs = @rider.runs
       session[:playlist_name] = @rider.name
     end
+
+    if params[:horse] and params[:horse] != ''
+      @horse = Horse.find(params[:horse])
+      @runs = @runs.where(horse: @horse)
+      session[:playlist_name] += "on #{@horse.name}"
+    end
+
+    @runs = @runs.paginate(page: params[:page])
 
     session[:playlist] = @runs.pluck(:id)
   end

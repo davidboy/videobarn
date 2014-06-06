@@ -1,8 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<%
+  if @show and @horse
+    subtitle = "on #{@horse.name} at the #{@show.name} show"
+  elsif @show
+    subtitle = "at the #{@show.name} show"
+  elsif @horse
+    subtitle = "on #{@horse.name}"
+  else
+    subtitle = ""
+  end
+%>
+
 <%= render partial: 'layouts/video_listing', locals: {
   headline: @rider.name,
-  subtitle: ("at the #{@show.name} show" if @show),
+  subtitle: subtitle,
 
   runs: @runs,
 
@@ -10,7 +22,12 @@
   refinement_name: 'Show',
   current_refinement: @show,
   no_refinements_url: @rider,
+  filtering_partial: 'riders/horse_filter',
   refinement_link_generator: ->(show) do
-    link_to show.name, "#{rider_path}/shows/#{show.id}"
+    if @horse
+      link_to show.name, "#{rider_path}/shows/#{show.id}?horse=#{@horse.id}"
+    else 
+      link_to show.name, "#{rider_path}/shows/#{show.id}"
+    end
   end
 } %>

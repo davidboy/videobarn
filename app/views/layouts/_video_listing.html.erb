@@ -4,6 +4,10 @@
     <% if subtitle %>
       <small><%= subtitle %></small>
     <% end %>
+
+    <% if filtering_partial %>
+      <%= render filtering_partial %>
+    <% end %>
   </h1>
 </div>
 

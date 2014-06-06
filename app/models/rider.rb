@@ -24,4 +24,8 @@ class Rider < ActiveRecord::Base
   before_save do
     self.sortable_name = self.name.split.last
   end
+
+  def horses_ridden
+    Horse.find(self.runs.pluck(:horse_id).uniq)
+  end
 end

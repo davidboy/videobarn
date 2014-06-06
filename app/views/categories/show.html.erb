@@ -10,6 +10,7 @@
   refinement_name: 'Arena',
   current_refinement: @arena,
   no_refinements_url: @category,
+  filtering_partial: nil,
   refinement_link_generator: ->(arena) do
     link_to arena, "#{category_path}/arenas/#{arena}/"
   end

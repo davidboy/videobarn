@@ -1,0 +1,12 @@
+<div class="btn-group pull-right">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <%= @horse ? @horse.name : 'All horses' %> <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li class="current"><a href="?horse=">All Horses</a></li>
+    <li class="divider"></li>
+    <% @rider.horses_ridden.each do |horse| %>
+      <li><a href="?horse=<%= horse.id %>"><%= horse.name %></a></li>
+    <% end %>
+  </ul>
+</div>
