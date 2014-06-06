@@ -25,7 +25,7 @@ class RidersController < ApplicationController
     if params[:horse] and params[:horse] != ''
       @horse = Horse.find(params[:horse])
       @runs = @runs.where(horse: @horse)
-      session[:playlist_name] += "on #{@horse.name}"
+      session[:playlist_name] += " on #{@horse.name}"
     end
 
     @runs = @runs.paginate(page: params[:page])
