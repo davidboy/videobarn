@@ -1,5 +1,8 @@
 <div class="page-header">
-  <h1>All riders</h1>
+  <h1>
+    All riders
+    <%= link_to 'New Rider', new_rider_path, class: 'btn btn-default pull-right' %>
+  </h1>
 </div>
 
 <script>
@@ -43,7 +46,3 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Rider', new_rider_path %>
