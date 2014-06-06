@@ -13,4 +13,7 @@
 class VideoView < ActiveRecord::Base
   belongs_to :video
   belongs_to :user
+
+  has_one :run, :through => :video
+  has_one :rider, :through => :run
 end

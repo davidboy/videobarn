@@ -28,4 +28,11 @@ class Rider < ActiveRecord::Base
   def horses_ridden
     Horse.find(self.runs.pluck(:horse_id).uniq)
   end
+
+  def times_viewed
+    # FIXME: There's most likely a better way to do this, but since there's
+    #   less than 100 riders in the database and we're using sqlite, and this
+    #   is only used by an admin page,  it's not a real problem at the moment.
+    VideoView.joins(:video).joins(:run).joins(:rider).where(riders: {id: self.id }).count
+  end
 end
