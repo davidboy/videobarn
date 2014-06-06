@@ -1,4 +1,4 @@
-<%= form_for(@show) do |f| %>
+<%= form_for(@show, html: { class: 'form-horizontal' }) do |f| %>
   <% if @show.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
@@ -11,23 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.label :location, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+
+  <div class="form-group">
+    <%= f.label :date, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 form-control-static">
+      <%= f.date_select :date %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :double_judged %><br>
-    <%= f.check_box :double_judged %>
+
+  <div class="form-group">
+    <%= f.label :double_judged, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 form-control-static">
+      <%= f.check_box :double_judged %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
+
+  <div class="form-group">
+    <%= f.label :notes, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Go back', shows_path, class: 'btn btn-default pull-right' %>
+    </div>
   </div>
 <% end %>
