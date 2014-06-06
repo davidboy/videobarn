@@ -1,11 +1,15 @@
-<h1>Listing horses</h1>
+<div class="page-header">
+  <h1>
+    Manage horses
+    <%= link_to 'New Horse', new_horse_path, class: 'btn btn-default pull-right' %>
+  </h1>
+</div>
 
-<table>
+<table class="table table-hover table-condensed" style="width: auto;">
   <thead>
     <tr>
       <th>Name</th>
       <th>Notes</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16,7 +20,6 @@
       <tr>
         <td><%= horse.name %></td>
         <td><%= horse.notes %></td>
-        <td><%= link_to 'Show', horse %></td>
         <td><%= link_to 'Edit', edit_horse_path(horse) %></td>
         <td><%= link_to 'Destroy', horse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Horse', new_horse_path %>
+
