@@ -1,13 +1,18 @@
-<h1>Listing shows</h1>
+<div class="page-header">
+  <h1>
+    Manage Shows
+    <%= link_to 'New Show', new_show_path, class: 'btn btn-primary pull-right' %>
+  </h1>
+</div>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Location</th>
+      <th>Year</th>
       <th>Date</th>
-      <th>Double judged</th>
+      <th>Location</th>
+      <th>Runs</th>
       <th>Notes</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16,18 +21,18 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr>
+        <td><%= show.date.strftime('%Y') %></td>
+        <td><%= show.date.strftime('%B %-d') %></td>
         <td><%= show.location %></td>
-        <td><%= show.date %></td>
-        <td><%= show.double_judged %></td>
+        <td><%= show.runs.count %></td>
         <td><%= show.notes %></td>
-        <td><%= link_to 'Show', show %></td>
-        <td><%= link_to 'Edit', edit_show_path(show) %></td>
-        <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= 'double' if show.double_judged %></td>
+        <td>
+          <%= link_to 'Show', show_path(show) %> |
+          <%= link_to 'Edit', edit_show_path(show) %> | 
+          <%= link_to 'Delete', show, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Show', new_show_path %>
