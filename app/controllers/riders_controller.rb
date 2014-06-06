@@ -12,14 +12,14 @@ class RidersController < ApplicationController
   # GET /riders/1.json
   def show
     @shows = @rider.shows.order('date DESC').uniq
+    @runs = @rider.runs
+    
+    session[:playlist_name] = @rider.name
 
     if params[:show_id]
       @show = Show.find(params[:show_id])
-      @runs = @rider.runs.where(show: @show)
-      session[:playlist_name] = "#{@rider.name} at #{@show.name}"
-    else
-      @runs = @rider.runs
-      session[:playlist_name] = @rider.name
+      @runs = @runs.where(show: @show)
+      session[:playlist_name] += " at #{@show.name}"
     end
 
     if params[:horse] and params[:horse] != ''
